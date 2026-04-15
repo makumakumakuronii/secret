@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>bortdei</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #ffc0cb, #ffe4ec);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      color: #5a2a3a;
+      overflow: hidden;
+    }
+
+    .envelope {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 2;
+    }
+
+    .envelope:hover {
+      transform: scale(1.05);
+    }
+
+    .letter {
+      display: none;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 500px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      z-index: 2;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    /* 💖 Floating hearts */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      color: #ff4d6d;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 💌 Envelope -->
+  <div class="envelope" onclick="openMail()" id="envelope">
+    <h2>buksan mo. ayaw mo? edi wag</h2>
+    <h3>joke lang pi open mo pls :(</h3>
+    <p>click mu</p>
+  </div>
+
+  <!-- 💌 Letter -->
+  <div class="letter" id="letter">
+    <h1>happy birthday, ulan!</h1>
+
+    <p>
+      first of all, happy birthday!! i hope you'll have a great day today hehe
+    </p>
+
+    <p>
+     i honestly don't know kung ano ilalagay ko here since this is a first for me. aware naman na u na i like u ganern ganern and im sorry i've been trying to keep my distance nakaraan, not because i don't care lam mu naman yan, but bcs i dont wanna make things harder for either of us or maybe for me lang
+    </p>
+
+    <p>
+      but even then, i'm really glad i met u last year ganern ganern. and like even if we don't have all the time in the world, i want it to mean something. 
+      i think i'll stay a little longer than i think i should, and spend every seconds happier w u
+    </p>
+
+    <p>
+     i js found it funny na nickname ko sau sa IG is ulan, but u honestly feel like the sun that shines when it starts to get gloomy and cloudy
+    </p>
+
+    <p>
+      so yuhh, i hope today gives u warmth, soft moments, and reasons to smileeee. u deserve that, always
+    </p>
+
+    <p>
+      i was supposed to do smth more than this and give u a gift pero SOMEONE (clue: bff mo) wouldn't cooperate kaya eto na lang. 
+      sorry if it's so simple, i'm not that skilled for complicated coding, some things here need ko pa tutorial hehe and 
+      the last time i made smth like this was for computer class nung grade 6 huhuhu (hello world hahahahahaha)
+    </p>
+
+    <p>
+     happy birthday ulit!!!! 💞💞
+    </p>
+  </div>
+
+  <script>
+    function openMail() {
+      document.getElementById("envelope").style.display = "none";
+      document.getElementById("letter").style.display = "block";
+    }
+
+    // 💖 create floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💖";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+      heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>
